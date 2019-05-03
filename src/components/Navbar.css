@@ -1,5 +1,9 @@
 @import url('https://fonts.googleapis.com/css?family=Lobster');
 
+a {
+  text-decoration: none;
+}
+
 .navbar {
   position: fixed;
   top: 0;
@@ -14,8 +18,11 @@
 
 .logo {
   font-family: 'Lobster', cursive;
-  color: white;
   margin-left: 30px;
+}
+
+.logo-font {
+  color: white;
 }
 
 button {
@@ -26,7 +33,6 @@ button {
   font-size: 15px;
   border-radius: 3px;
   border: solid 1px;
-  color: white;
   font-weight: 600;
 }
 
