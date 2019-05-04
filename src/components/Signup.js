@@ -18,10 +18,15 @@ class Signup extends Component {
     this.setState({[name]: value});
   }
 
+  onSubmit = (event) => {
+    event.preventDefault();
+    console.log('send');
+  }
+
   render() {
     return (
       <div className="signup-container">
-        <form>
+        <form onSubmit={this.onSubmit}>
 
           <div>
             <label htmlFor="name">Name: </label>
@@ -51,7 +56,7 @@ class Signup extends Component {
               onChange={this.onChangeInput}
             />
           </div>
-
+          <button type="submit">Signup</button>
         </form>
       </div>
     );
