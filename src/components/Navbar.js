@@ -11,8 +11,8 @@ class Navbar extends Component {
           <h1><a href="/" className="logo-font">Pictures</a></h1>
         </div>
         <div>
-          <button className="signup"><a href="/signuplogin" style={{color: 'white'}}>Signup</a> </button>
-          <button className="login"><a href="/signuplogin" style={{color: 'white'}}>Login</a></button>
+          <a href="/signuplogin"><button className="signup">Signup</button></a> 
+          <a href="/signuplogin"><button className="login">Login</button></a>
         </div>
       </nav>
     );
