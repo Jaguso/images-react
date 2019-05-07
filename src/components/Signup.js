@@ -25,6 +25,11 @@ class Signup extends Component {
     response = await createUser(this.state).catch()
     if (response) {
       console.log(response.data)
+      this.setState({
+        name: "",
+        email: "",
+        password: ""
+      })
     }
   }
 

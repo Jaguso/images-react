@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import { loginUser } from '../services';
 import './Login.css';
 
 class Login extends Component {
@@ -17,9 +18,14 @@ class Login extends Component {
     this.setState({[name]: value});
   }
 
-  onSubmit = (event) => {
+  onSubmit = async(event) => {
     event.preventDefault();
-    console.log('send');
+    let response = await loginUser(this.state).catch();
+    if (response) {
+      const token = response.data.token
+      localStorage.setItem('Token', token);
+      this.props.history.push('/');
+    }
   }
 
   render() {
