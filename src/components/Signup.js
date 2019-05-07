@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import './Signup.css';
+import { createUser } from '../services';
 
 class Signup extends Component {
 
@@ -18,9 +19,13 @@ class Signup extends Component {
     this.setState({[name]: value});
   }
 
-  onSubmit = (event) => {
+  onSubmit = async(event) => {
     event.preventDefault();
-    console.log('send');
+    let response = {};
+    response = await createUser(this.state).catch()
+    if (response) {
+      console.log(response.data)
+    }
   }
 
   render() {
