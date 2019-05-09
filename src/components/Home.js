@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import PictureCard from './PictureCard';
 import './Home.css';
 import { getAllPictures } from '../services';
 
@@ -17,16 +18,21 @@ class Home extends Component {
       this.setState({
         data: response.data
       })
-
+    }).catch((e) => {
+      console.log(e);
     })
   }
 
   render() {
     return(
       <div className="home">
-        {this.state.data.map(pic => (
-          <div>{pic.description}</div>
+        {this.state.data.map((pic, i) => (
+          <PictureCard 
+            key={i}
+            description={pic.description}
+          />
         ))}
+        <button id="upload">Add a picture</button>
       </div>
     );
   }
