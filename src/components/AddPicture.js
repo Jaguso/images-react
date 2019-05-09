@@ -38,7 +38,7 @@ class AddPicture extends Component {
       .getDownloadURL()
       .then(url => {
         this.setState({
-          picture: this.state.picture + url
+          picture: url
         })
       })
   }

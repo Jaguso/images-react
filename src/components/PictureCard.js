@@ -6,7 +6,7 @@ class PictureCard extends Component {
     return (
       <div>
         {this.props.description}
-        <img src={this.props.picture} alt="pokf"/>
+        <img src={this.props.picture} alt="pokf" style={{height: '400px'}}/>
       </div>
     );
   }

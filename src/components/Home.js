@@ -27,11 +27,12 @@ class Home extends Component {
     return(
       <div className="home">
         {this.state.data.map((pic, i) => (
-          <PictureCard 
-            key={i}
-            description={pic.description}
-            image={pic.picture}
-          />
+          <div style={{height: '400px'}} key={i}>
+            <PictureCard
+              description={pic.description}
+              picture={pic.picture}
+            />
+          </div>
         ))}
         <a href="/addpic"><button id="upload">Add a picture</button></a>
       </div>
