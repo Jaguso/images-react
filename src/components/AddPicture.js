@@ -1,8 +1,8 @@
 import React, { Component } from 'react';
 import './AddPicture.css';
 import { createPicture } from '../services';
-import Firebase from '../Firebase';
-import FileUploader from 'react-firebase-file-uploader';
+// import Firebase from '../Firebase';
+// import FileUploader from 'react-firebase-file-uploader';
 
 class AddPicture extends Component {
 
@@ -30,22 +30,22 @@ class AddPicture extends Component {
     }
   }
 
-  handleUploadSuccess = (filename) => {
-    Firebase
-      .storage()
-      .ref('images')
-      .child(filename)
-      .getDownloadURL()
-      .then(url => {
-        this.setState({
-          picture: url
-        })
-      })
-  }
+  // handleUploadSuccess = (filename) => {
+  //   Firebase
+  //     .storage()
+  //     .ref('images')
+  //     .child(filename)
+  //     .getDownloadURL()
+  //     .then(url => {
+  //       this.setState({
+  //         picture: url
+  //       })
+  //     })
+  // }
 
-  handleUploadError = (error) => {
-    console.log(error)
-  }
+  // handleUploadError = (error) => {
+  //   console.log(error)
+  // }
 
 
   render() {
@@ -73,7 +73,7 @@ class AddPicture extends Component {
             />
           </div> */}
 
-          <div>
+          {/* <div>
             <label>
               Add Picture
               <FileUploader
@@ -86,7 +86,7 @@ class AddPicture extends Component {
                 onUploadSuccess={this.handleUploadSuccess}
               />
             </label>
-          </div>
+          </div> */}
 
 
           <button type="submit">Save Picture</button>
