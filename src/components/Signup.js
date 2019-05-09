@@ -21,8 +21,7 @@ class Signup extends Component {
 
   onSubmit = async(event) => {
     event.preventDefault();
-    let response = {};
-    response = await createUser(this.state).catch()
+    let response = await createUser(this.state).catch()
     if (response) {
       console.log(response.data)
     }
