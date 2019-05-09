@@ -32,7 +32,7 @@ class Home extends Component {
             description={pic.description}
           />
         ))}
-        <button id="upload">Add a picture</button>
+        <a href="/addpic"><button id="upload">Add a picture</button></a>
       </div>
     );
   }

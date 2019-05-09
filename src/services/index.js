@@ -8,8 +8,12 @@ const loginUser = (data) => axios.post(`${API_URL}/user/login`, data);
 
 const getAllPictures = () => axios.get(`${API_URL}/picture`);
 
+const createPicture = (data) => axios.post(`${API_URL}/picture`, data, 
+{headers: {"Authorization": `JWT ${localStorage.getItem('Token')}`}});
+
 export {
   createUser,
   loginUser,
-  getAllPictures
+  getAllPictures,
+  createPicture
 }
