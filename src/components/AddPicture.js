@@ -1,6 +1,8 @@
 import React, { Component } from 'react';
 import './AddPicture.css';
 import { createPicture } from '../services';
+import Firebase from '../Firebase';
+import FileUploader from 'react-firebase-file-uploader';
 
 class AddPicture extends Component {
 
@@ -12,7 +14,6 @@ class AddPicture extends Component {
     }
   }
 
-
   onChangeInput = (event) => {
     const {name, value} = event.target;
     console.log("Valores: ", name, value);
@@ -21,11 +22,29 @@ class AddPicture extends Component {
 
   onSubmit = async(event) => {
     event.preventDefault();
-    let response = await createPicture(this.state).catch();
+    let response = await createPicture(this.state)
+      .catch(e => console.log(e));
     if (response) {
       console.log(response.data)
+      this.props.history.push('/');
     }
+  }
 
+  handleUploadSuccess = (filename) => {
+    Firebase
+      .storage()
+      .ref('images')
+      .child(filename)
+      .getDownloadURL()
+      .then(url => {
+        this.setState({
+          picture: this.state.picture + url
+        })
+      })
+  }
+
+  handleUploadError = (error) => {
+    console.log(error)
   }
 
 
@@ -44,7 +63,7 @@ class AddPicture extends Component {
             />
           </div>
 
-          <div>
+          {/* <div>
             <label htmlFor="picture">Picture: </label>
             <input
               type="text"
@@ -52,10 +71,25 @@ class AddPicture extends Component {
               value={this.state.picture}
               onChange={this.onChangeInput}
             />
+          </div> */}
+
+          <div>
+            <label>
+              Add Picture
+              <FileUploader
+                hidden
+                accept="image/*"
+                randomizeFilename
+                multiple
+                storageRef={Firebase.storage().ref('images')}
+                onUploadError={this.handleUploadError}
+                onUploadSuccess={this.handleUploadSuccess}
+              />
+            </label>
           </div>
 
 
-          <button type="submit">Add picture</button>
+          <button type="submit">Save Picture</button>
         </form>
       </div>
     );

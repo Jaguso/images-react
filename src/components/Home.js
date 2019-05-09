@@ -30,6 +30,7 @@ class Home extends Component {
           <PictureCard 
             key={i}
             description={pic.description}
+            image={pic.picture}
           />
         ))}
         <a href="/addpic"><button id="upload">Add a picture</button></a>
