@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import AddPicture from './components/AddPicture';
+// import Img from './components/Img';
 
 class Routes extends Component {
   render() {
@@ -16,6 +17,7 @@ class Routes extends Component {
         <Route exact path="/signup" component={Signup}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/addpic" component={AddPicture}/>
+        {/* <Route exact path="/img" component={Img}/> */}
       </main>
     </BrowserRouter>
     );
