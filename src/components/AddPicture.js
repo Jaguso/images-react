@@ -3,7 +3,7 @@ import './AddPicture.css';
 import { createPicture } from '../services';
 import Firebase from '../Firebase';
 import FileUploader from 'react-firebase-file-uploader';
-// import axios from 'axios';
+import { async } from 'q';
 
 
 class AddPicture extends Component {
@@ -31,27 +31,6 @@ class AddPicture extends Component {
       this.props.history.push('/');
     }
   }
-  
-  // fileSelectHandler = (event) => {
-  //   console.log(event.target.files[0]);
-  //   this.setState({
-  //     picture: event.target.files[0]
-  //   });
-  // }
-
-  
-  // onSubmit = (event) => {
-  //   event.preventDefault();
-  //   const fd = new FormData();
-  //   fd.set('description', this.state.description);
-  //   fd.append('picture', this.state.picture, this.state.picture.name);
-  //   axios.post('http://localhost:9000/picture', fd)
-  //     .then(res => {
-  //       console.log(res);
-  //     });
-  // }
-
-
 
   handleUploadSuccess = (filename) => {
     Firebase
@@ -60,9 +39,12 @@ class AddPicture extends Component {
       .child(filename)
       .getDownloadURL()
       .then(url => {
-        this.setState({
-          picture: url
-        })
+        this.setState(prevState => ({
+          picture: [
+            ...prevState.picture,
+            url
+          ]
+        }))
       })
   }
 
@@ -89,7 +71,7 @@ class AddPicture extends Component {
 
           <div>
             <label>
-              Add Picturewe
+              Add Picture
               <FileUploader
                 hidden
                 accept="image/*"
@@ -102,10 +84,7 @@ class AddPicture extends Component {
             </label>
           </div>
 
-          {/* <div>
-            <label>Add Picture </label>
-            <input type="file" onChange={this.fileSelectHandler}/>
-          </div> */}
+          
 
           <button type="submit">Save Picture</button>
         </form>
