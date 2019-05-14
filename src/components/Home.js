@@ -34,7 +34,7 @@ class Home extends Component {
             />
           </div>
         ))}
-        <a href="/addpic"><button id="upload">Add a picture</button></a>
+        <a href="/upload"><button id="upload">Add a picture</button></a>
       </div>
     );
   }
