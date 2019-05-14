@@ -5,13 +5,16 @@ import Firebase from '../Firebase';
 import FileUploader from 'react-firebase-file-uploader';
 
 
-class AddPicture extends Component {
+class AddPicture2 extends Component {
 
-  constructor(props) {
-    super(props);
+  constructor() {
+    super();
     this.state = {
       description: '',
       picture: []
+    }
+    this.setRef = ref => {
+      this.file = ref;
     }
   }
 
@@ -31,25 +34,25 @@ class AddPicture extends Component {
     }
   }
 
-  handleUploadSuccess = (filename) => {
-    Firebase
-      .storage()
-      .ref('images')
-      .child(filename)
-      .getDownloadURL()
-      .then(url => {
-        this.setState(prevState => ({
-          picture: [
-            ...prevState.picture,
-            url
-          ]
-        }))
-      })
-  }
+  // handleUploadSuccess = (filename) => {
+  //   Firebase
+  //     .storage()
+  //     .ref('images')
+  //     .child(filename)
+  //     .getDownloadURL()
+  //     .then(url => {
+  //       this.setState(prevState => ({
+  //         picture: [
+  //           ...prevState.picture,
+  //           url
+  //         ]
+  //       }))
+  //     })
+  // }
 
-  handleUploadError = (error) => {
-    console.log(error)
-  }
+  // handleUploadError = (error) => {
+  //   console.log(error)
+  // }
 
 
   render() {
@@ -68,7 +71,7 @@ class AddPicture extends Component {
           </div>
 
 
-          <div>
+          {/* <div>
             <label>
               Add Picture
               <FileUploader
@@ -81,8 +84,14 @@ class AddPicture extends Component {
                 onUploadSuccess={this.handleUploadSuccess}
               />
             </label>
-          </div>
+          </div> */}
 
+          <div>
+            <input
+              type="file"
+              ref={this.setRef}
+            />
+          </div>
           
 
           <button type="submit">Save Picture</button>
@@ -92,4 +101,4 @@ class AddPicture extends Component {
   }
 }
 
-export default AddPicture;
+export default AddPicture2;
