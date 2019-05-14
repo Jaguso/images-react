@@ -30,9 +30,13 @@ class ImageUpload extends Component {
       console.log(error);
     }, 
     () => {
-      storage.ref('images').child(image.name).getDownloadURL().then(url => {
-        console.log(url);
-      })
+      storage.ref('images')
+        .child(image.name)
+        .getDownloadURL()
+        .then(url => {
+          console.log(url);
+          this.setState({url})
+      });
     });
   }
 
@@ -41,6 +45,7 @@ class ImageUpload extends Component {
       <div>
         <input type="file" onChange={this.handleChange}/>
         <button onClick={this.handleUpload}>Upload</button>
+        <img src={this.state.url || 'http://via.placeholder.com/400x300'} alt="Uploaded images" height="300" width="400"/>
       </div>
     );
   }
