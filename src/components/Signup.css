@@ -4,3 +4,40 @@
   align-items: center;
   height: 100vh;
 }
+
+.container-input {
+  display: flex;
+  margin: 20px;
+}
+
+.left {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+  
+}
+
+.right {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
+}
+
+.input {
+  margin-left: 10px;
+  height: 20px;
+  width: 300px;
+  border: 1px solid;
+  border-radius: 3px;
+  border-color: gray;
+}
+
+.label {
+  margin-right: 10px;
+}
+
+
+.register {
+  background-color: dodgerblue;
+
+}

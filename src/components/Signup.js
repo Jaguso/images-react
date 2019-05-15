@@ -32,35 +32,53 @@ class Signup extends Component {
       <div className="signup-container">
         <form onSubmit={this.onSubmit}>
 
-          <div>
-            <label htmlFor="name">Username: </label>
-            <input 
-              type="text" 
-              name="name" 
-              value={this.state.name} 
-              onChange={this.onChangeInput} />
+          <div className="container-input">
+            <div className="left">
+              <label className="label" htmlFor="name">Username: </label>
+            </div>
+            <div className="right">
+              <input 
+                type="text" 
+                name="name" 
+                className="input"
+                value={this.state.name} 
+                onChange={this.onChangeInput} 
+              />
+            </div>
           </div>
 
-          <div>
-            <label htmlFor="email">Email: </label>
-            <input
-              type="email"
-              name="email"
-              value={this.state.email}
-              onChange={this.onChangeInput}
-            />
+          <div className="container-input">
+            <div className="left">
+              <label className="label" htmlFor="email">Email: </label>
+            </div>
+            <div className="right">
+              <input
+                type="email"
+                name="email"
+                className="input"
+                value={this.state.email}
+                onChange={this.onChangeInput}
+              />
+            </div>
           </div>
 
-          <div>
-            <label>Password: </label>
-            <input
-              type="password"
-              name="password"
-              value={this.state.password}
-              onChange={this.onChangeInput}
-            />
+          <div className="container-input">
+            <div className="left">
+              <label className="label" htmlFor="password">Password: </label>
+            </div>
+            <div className="right">
+              <input
+                type="password"
+                name="password"
+                className="input"
+                value={this.state.password}
+                onChange={this.onChangeInput}
+              />
+            </div>
           </div>
-          <button type="submit">Signup</button>
+          <div className="add-container">
+            <button className="register" type="submit">Signup</button>
+          </div>
         </form>
       </div>
     );
