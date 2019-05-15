@@ -1,0 +1,14 @@
+.picture-card {
+  display: flex;
+  flex-direction: column;
+  margin: 2px;
+}
+
+.title {
+  text-align: center;
+  /* background-color: rgba(0, 0, 0, 0.3); */
+}
+
+.picture {
+  cursor: pointer;
+}

@@ -33,7 +33,7 @@ class Signup extends Component {
         <form onSubmit={this.onSubmit}>
 
           <div>
-            <label htmlFor="name">Name: </label>
+            <label htmlFor="name">Username: </label>
             <input 
               type="text" 
               name="name" 

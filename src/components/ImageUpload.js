@@ -11,6 +11,7 @@ class ImageUpload extends Component {
       image: null, 
       url: '',
       progress: 0,
+      title: '',
       description: '',
       picture: []
     }
@@ -60,6 +61,7 @@ class ImageUpload extends Component {
   onSubmit = async(event) => {
     event.preventDefault();
     let response = await createPicture({
+      title: this.state.title,
       description: this.state.description,
       picture: this.state.picture
     })
@@ -74,6 +76,16 @@ class ImageUpload extends Component {
     return (
       <div className="upload-container">
         <form onSubmit={this.onSubmit}>
+
+          <div>
+            <label htmlFor="title">Title: </label>
+            <input
+              type="text"
+              name="title"
+              value={this.state.title}
+              onChange={this.onChangeInput}
+            />
+          </div>
 
           <div>
             <label htmlFor="description">Description: </label>
@@ -91,11 +103,11 @@ class ImageUpload extends Component {
             <button onClick={this.handleUpload}>Upload</button>
           </div>
 
-          <button onClick={this.onSubmit}>Save picture</button>
         </form>
 
         
         <img src={this.state.url || 'http://via.placeholder.com/500x400'} alt="Uploaded images" height="400" width="500"/>
+        <button onClick={this.onSubmit}>Save picture</button>
       </div>
     );
   }

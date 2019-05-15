@@ -26,15 +26,21 @@ class Home extends Component {
   render() {
     return(
       <div className="home">
-        {this.state.data.map((item, i) => (
-          <div style={{height: '400px'}} key={i}>
-            <PictureCard
-              description={item.description}
-              picture={item.picture[0]}
-            />
-          </div>
-        ))}
-        <a href="/upload"><button id="upload">Add a picture</button></a>
+      
+        <div className="pics">
+          {this.state.data.map((item, i) => (
+            <div key={i}>
+              <PictureCard
+                title={item.title}
+                description={item.description}
+                picture={item.picture[0]}
+              />
+            </div>
+          ))}
+        </div>
+        <div className="add-container">
+          <a href="/upload"><button className="add-button">Add a picture</button></a>
+        </div>
       </div>
     );
   }

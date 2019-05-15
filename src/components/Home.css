@@ -1,11 +1,22 @@
 .home {
-  /* display: flex;
-  justify-content: center;
-  align-items: center;
-  height: 100vh; */
-  margin: 150px;
+  margin: 100px;
 }
 
-#upload {
-  width: 150px;
+.pics {
+  display: flex;
+  justify-content: flex-start;
+  flex-wrap: wrap;
+  /* align-items: center; */
+}
+
+
+.add-container {
+  margin: 30px;
+  display: flex;
+  justify-content: center;
+}
+
+.add-button {
+  background-color: dodgerblue;
+  border-color: dodgerblue;
 }
