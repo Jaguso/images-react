@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
-import { getPicture } from '../services';
+import { getPicture, deletePicture } from '../services';
+import './PictureWatch.css';
 
 class PictureWatch extends Component {
 
@@ -13,25 +14,34 @@ class PictureWatch extends Component {
   }
 
   componentDidMount() {
-    console.log(this.state.id)
     getPicture(this.state.id).then(response => {
       console.log(response.data);
       this.setState({
         data: response.data,
         pic: response.data.picture[0]
       });
-      console.log(this.state)
     }).catch(e => {
       console.log(e);
     })
   }
 
+  onClick = () => {
+    deletePicture(this.state.id).then(response => {
+      console.log(response);
+      this.props.history.push('/');
+    })
+    .catch(e => {
+      console.log(e);
+    })
+  }
+
   render() {
-    console.log(this.state.data.picture)
     return(
-      <div>
-        sdfg
-        <img src={this.state.pic} width="500" height="400"/>
+      <div className="show-image-container">
+        <h2>{this.state.data.title}</h2>
+        <img src={this.state.pic} alt="picture" width="800" height="400"/>
+        <p>{this.state.data.description}</p>
+        <button onClick={this.onClick}>Delete picture</button>
       </div>
     );
   }

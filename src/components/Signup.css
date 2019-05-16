@@ -11,14 +11,14 @@
 }
 
 .left {
-  width: 50%;
+  width: 15%;
   display: flex;
   justify-content: flex-end;
   
 }
 
 .right {
-  width: 50%;
+  width: 85%;
   display: flex;
   justify-content: flex-start;
 }
@@ -26,7 +26,7 @@
 .input {
   margin-left: 10px;
   height: 20px;
-  width: 300px;
+  width: 250px;
   border: 1px solid;
   border-radius: 3px;
   border-color: gray;

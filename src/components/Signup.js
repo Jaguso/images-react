@@ -23,7 +23,9 @@ class Signup extends Component {
     event.preventDefault();
     let response = await createUser(this.state).catch()
     if (response) {
-      console.log(response.data)
+      const token = response.data.token
+      localStorage.setItem('Token', token);
+      this.props.history.push('/');
     }
   }
 
