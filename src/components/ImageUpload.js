@@ -77,17 +77,22 @@ class ImageUpload extends Component {
       <div className="upload-container">
         <form onSubmit={this.onSubmit}>
 
-          <div>
-            <label htmlFor="title">Title: </label>
-            <input
-              type="text"
-              name="title"
-              value={this.state.title}
-              onChange={this.onChangeInput}
-            />
+          <div className="container-input">
+            <div className="left"> 
+              <label htmlFor="title">Title: </label>
+            </div>
+            <div className="right">
+              <input
+                type="text"
+                name="title"
+                value={this.state.title}
+                onChange={this.onChangeInput}
+              />
+            </div>
           </div>
 
-          <div>
+          <div className="container-input">
+            
             <label htmlFor="description">Description: </label>
             <input
               type="text"

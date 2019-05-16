@@ -5,6 +5,7 @@ import Home from './components/Home';
 import Signup from './components/Signup';
 import Login from './components/Login';
 import ImageUpload from './components/ImageUpload';
+import PictureWatch from './components/PictureWatch';
 
 class Routes extends Component {
   render() {
@@ -16,6 +17,7 @@ class Routes extends Component {
         <Route exact path="/signup" component={Signup}/>
         <Route exact path="/login" component={Login}/>
         <Route exact path="/upload" component={ImageUpload}/>
+        <Route exact path="/pictures/:id" component={PictureWatch}/>
       </main>
     </BrowserRouter>
     );
