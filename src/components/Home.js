@@ -34,6 +34,7 @@ class Home extends Component {
                 title={item.title}
                 description={item.description}
                 picture={item.picture[0]}
+                id={item._id}
               />
             </div>
           ))}

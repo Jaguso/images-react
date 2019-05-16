@@ -5,7 +5,7 @@ class PictureCard extends Component {
   render() {
     return (
       <div className="picture-card">
-        <a href="/">
+        <a href={`/pictures/${this.props.id}`}>
           <img 
             src={this.props.picture} 
             alt="image" 
