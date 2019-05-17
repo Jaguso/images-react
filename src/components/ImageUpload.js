@@ -2,6 +2,7 @@ import React, { Component } from 'react';
 import { storage } from '../Firebase';
 import './ImageUpload.css'
 import { createPicture } from '../services';
+import payload from '../resolvers/payload';
 
 
 class ImageUpload extends Component {
@@ -60,7 +61,9 @@ class ImageUpload extends Component {
 
   onSubmit = async(event) => {
     event.preventDefault();
+    const name = payload(localStorage.getItem('Token')).name;
     let response = await createPicture({
+      user: name,
       title: this.state.title,
       description: this.state.description,
       picture: this.state.picture
@@ -75,6 +78,8 @@ class ImageUpload extends Component {
   render() {
     return (
       <div className="upload-container">
+        <img src={this.state.url || 'http://via.placeholder.com/500x400'} alt="Uploaded images" height="400" width="500"/>
+
         <form onSubmit={this.onSubmit}>
 
           <div className="container-input">
@@ -108,11 +113,10 @@ class ImageUpload extends Component {
           </div>
 
         </form>
-
         
-        <img src={this.state.url || 'http://via.placeholder.com/500x400'} alt="Uploaded images" height="400" width="500"/>
         <progress value={this.state.progress} max="100"/>
         <button onClick={this.onSubmit}>Save picture</button>
+        {payload(localStorage.getItem('Token')).name}
       </div>
     );
   }

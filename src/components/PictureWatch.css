@@ -5,3 +5,11 @@
   align-items: center;
   height: 100vh;
 }
+
+.pic {
+  border-radius: 5px;
+}
+
+.delete {
+  background-color: orangered;
+}
