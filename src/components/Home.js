@@ -8,8 +8,7 @@ class Home extends Component {
   constructor() {
     super();
     this.state = {
-      data: [],
-      isLoading: true
+      data: []
     }
   }
 
@@ -18,15 +17,15 @@ class Home extends Component {
       console.log(response.data);
       this.setState({
         data: response.data,
-        isLoading: false
       })
     }).catch((e) => {
       console.log(e);
     })
   }
 
-  renderPictures = () => {
-    return (
+
+  render() {
+    return(
       <div className="home">
         <div className="pics">
           {this.state.data.map((item, i) => (
@@ -44,12 +43,6 @@ class Home extends Component {
           <a href="/upload"><button className="add-button">Add a picture</button></a>
         </div>
       </div>
-    );
-  }
-
-  render() {
-    return(
-      (this.state.isLoading) ? <h4 className="loading">Loading...</h4> : this.renderPictures()
     );
   }
 }

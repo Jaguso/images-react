@@ -78,45 +78,52 @@ class ImageUpload extends Component {
   render() {
     return (
       <div className="upload-container">
-        <img src={this.state.url || 'http://via.placeholder.com/500x400'} alt="Uploaded images" height="400" width="500"/>
+        <div className="image-container">
+          <img src={this.state.url || 'http://via.placeholder.com/500x400'} alt="Uploaded images" height="400" width="500"/>
+          <progress value={this.state.progress} max="100"/>
+          <button onClick={this.onSubmit} className="btn-pic">Save picture</button>
+        </div>
 
-        <form onSubmit={this.onSubmit}>
+        <div className="form-container">
+          <p>Add a title and description to you picture,</p>
+          <form onSubmit={this.onSubmit}>
 
-          <div className="container-input">
-            <div className="left"> 
-              <label htmlFor="title">Title: </label>
+            <div className="container-input">
+              <div className="left"> 
+                <label htmlFor="title">Title: </label>
+              </div>
+              <div className="right">
+                <input
+                  type="text"
+                  name="title"
+                  value={this.state.title}
+                  onChange={this.onChangeInput}
+                />
+              </div>
             </div>
-            <div className="right">
-              <input
-                type="text"
-                name="title"
-                value={this.state.title}
-                onChange={this.onChangeInput}
-              />
+
+            <div className="container-input">
+              <div className="left">
+                <label htmlFor="description">Description: </label>
+              </div>
+              <div className="right">
+                <input
+                  type="text"
+                  name="description"
+                  value={this.state.description}
+                  onChange={this.onChangeInput}
+                />
+              </div>
             </div>
-          </div>
 
-          <div className="container-input">
-            
-            <label htmlFor="description">Description: </label>
-            <input
-              type="text"
-              name="description"
-              value={this.state.description}
-              onChange={this.onChangeInput}
-            />
-          </div>
-
-          <div>
-            <input type="file" onChange={this.handleChange}/>
-            <button onClick={this.handleUpload}>Upload</button>
-          </div>
-
-        </form>
-        
-        <progress value={this.state.progress} max="100"/>
-        <button onClick={this.onSubmit}>Save picture</button>
-        {payload(localStorage.getItem('Token')).name}
+            <div>
+              <input type="file" onChange={this.handleChange}/>
+              <button onClick={this.handleUpload} className="btn-pic">Upload</button>
+            </div>
+          </form>
+          
+          
+        </div>
       </div>
     );
   }
