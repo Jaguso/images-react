@@ -1,8 +1,28 @@
 import React, { Component } from 'react';
 import './Navbar.css'
+import payload from '../resolvers/payload';
+import isAuthenticated from '../resolvers/isAuthenticated';
 
 class Navbar extends Component {
 
+  authRender = () => {
+    if (isAuthenticated()) {
+      let name = payload(localStorage.getItem('Token')).name;
+      return (
+        <div>
+          <p className="signup">Hola {name}</p>
+          <a href="/logout"><button className="login">Logout</button></a>
+        </div>
+      );
+    } else {
+      return (
+        <div>
+          <a href="/signup"><button className="signup">Signup</button></a> 
+          <a href="/login"><button className="login">Login</button></a>
+        </div>
+      );
+    }
+  }
 
   render() {
     return (
@@ -11,8 +31,7 @@ class Navbar extends Component {
           <h1><a href="/" className="logo-font">Pictures</a></h1>
         </div>
         <div>
-          <a href="/signup"><button className="signup">Signup</button></a> 
-          <a href="/login"><button className="login">Login</button></a>
+          {this.authRender()}
         </div>
       </nav>
     );
