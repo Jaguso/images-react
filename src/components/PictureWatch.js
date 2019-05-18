@@ -31,7 +31,9 @@ class PictureWatch extends Component {
       this.props.history.push('/');
     })
     .catch(e => {
-      console.log(e);
+      if (e = "Auth failed") {
+        this.props.history.push('/login');
+      }
     })
   }
 
