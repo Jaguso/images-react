@@ -46,3 +46,12 @@ button {
   background-color: dodgerblue;
   border-color: dodgerblue;
 }
+
+.auth-container {
+  display: flex;
+  align-items: center;
+}
+
+.name {
+  color: white;
+}

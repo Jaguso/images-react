@@ -9,8 +9,8 @@ class Navbar extends Component {
     if (isAuthenticated()) {
       let name = payload(localStorage.getItem('Token')).name;
       return (
-        <div>
-          <p className="signup">Hola {name}</p>
+        <div className="auth-container">
+          <p className="name">Hola {name}</p>
           <a href="/logout"><button className="login">Logout</button></a>
         </div>
       );
