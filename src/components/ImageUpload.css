@@ -14,9 +14,25 @@
 }
 
 .form-container {
+  /* background-color: blueviolet; */
+  width: 40%;
+  height: 60vh;
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
+}
+
+.left-side {
+  width: 50%;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.right-side {
+  width: 50%;
+  display: flex;
+  justify-content: flex-start;
 }
 
 progress {
@@ -26,4 +42,27 @@ progress {
 
 .btn-pic {
   background-color: dodgerblue;
+}
+
+.input-upload {
+  margin-left: 10px;
+  border: solid 1px;
+  border-color: gray;
+  height: 18px;
+  border-radius: 3px;
+}
+
+.label-upload {
+  margin-right: 10px;
+}
+
+.upload-file {
+  display: flex;
+  justify-content: flex-end;
+  width: 100%;
+}
+
+.choose {
+  display: flex;
+  justify-content: center;
 }

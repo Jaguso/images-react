@@ -34,10 +34,10 @@ class Login extends Component {
         <form onSubmit={this.onSubmit}>
 
           <div className="container-input">
-            <div className="left">
+            <div className="left-side">
               <label className="label" htmlFor="email">Email: </label>
             </div>
-            <div className="right">
+            <div className="right-side">
               <input
                 type="email"
                 name="email"
@@ -49,10 +49,10 @@ class Login extends Component {
           </div>
 
           <div className="container-input">
-            <div className="left">
+            <div className="left-side">
               <label className="label" htmlFor="password">Password: </label>
             </div>
-            <div className="right">
+            <div className="right-side">
               <input
                 type="password"
                 name="password"
