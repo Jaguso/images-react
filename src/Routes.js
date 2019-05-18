@@ -15,6 +15,11 @@ const PrivateRoute = ({component: Component, ...rest}) => (
   )} />
 );
 
+const Logout = () => {
+  localStorage.removeItem('Token');
+  return <Redirect to="/"/>
+}
+
 class Routes extends Component {
   render() {
     return (
@@ -26,6 +31,7 @@ class Routes extends Component {
         <Route exact path="/login" component={Login}/>
         <PrivateRoute exact path="/upload" component={ImageUpload}/>
         <Route exact path="/pictures/:id" component={PictureWatch}/>
+        <Route exact path="/logout" component={Logout}/>
       </main>
     </BrowserRouter>
     );
