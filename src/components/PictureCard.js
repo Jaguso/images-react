@@ -8,13 +8,16 @@ class PictureCard extends Component {
         <a href={`/pictures/${this.props.id}`}>
           <img 
             src={this.props.picture} 
-            alt="image" 
+            alt="src" 
             height="160" 
             width="200" 
             className="picture" 
           />
         </a>
-        <p className="title">{this.props.title}</p>
+        <div className="sub-pic">
+          <p>By {this.props.user}</p>
+          <p className="title">{this.props.title}</p>
+        </div>
       </div>
     );
   }

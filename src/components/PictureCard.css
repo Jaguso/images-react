@@ -9,6 +9,19 @@
   /* background-color: rgba(0, 0, 0, 0.3); */
 }
 
+.sub-pic {
+  font-size: 15px;
+  color: rgba(0, 0, 0, 0.5);
+  height: 30px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  border: solid 1px;
+  border-radius: 2px;
+  border-color: gray;
+  margin-top: -4px;
+}
+
 .picture {
   cursor: pointer;
 }

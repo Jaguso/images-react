@@ -1,6 +1,6 @@
 import axios from 'axios';
 
-const API_URL = "http://localhost:9000";
+const API_URL = "https://images-backend-42.herokuapp.com";
 
 const createUser = (data) => axios.post(`${API_URL}/users/signup`, data);
 
