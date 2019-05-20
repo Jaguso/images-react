@@ -10,6 +10,12 @@
   border-radius: 5px;
 }
 
+.pic-watch {
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  width: 60%;
+}
 
 .delete {
   background-color: orangered;

@@ -44,8 +44,10 @@ class PictureWatch extends Component {
       <div className="show-image-container">
         <h2>{this.state.data.title}</h2>
         <img src={this.state.pic} alt="picture" width="800" height="400" className="pic"/>
-        <p>{this.state.data.description}</p>
-        <p>User: {this.state.data.user}</p>
+        <div className="pic-watch">
+          <p>By {this.state.data.user}</p>
+          <p>Description: {this.state.data.description}</p>
+        </div>
         <button className="delete" onClick={this.onClick}>Delete picture</button>
       </div>
     );
