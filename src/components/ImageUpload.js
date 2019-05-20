@@ -77,53 +77,55 @@ class ImageUpload extends Component {
 
   render() {
     return (
+      
       <div className="upload-container"> 
         
+          <form onSubmit={this.onSubmit} className="form-container">
+      
+            <div className="description">
+              <p>Instructions: Add title and description, then choose a picture with Choose File, then click on Add File, then click on Save picture.</p>
+            </div>
+            <div className="container-input">
+              <div className="left-side"> 
+                <label className="label-upload" htmlFor="title">Title: </label>
+              </div>
+              <div className="right-side">
+                <input
+                  type="text"
+                  name="title"
+                  className="input-upload"
+                  value={this.state.title}
+                  onChange={this.onChangeInput}
+                />
+              </div>
+            </div>
 
-        <form onSubmit={this.onSubmit} className="form-container">
-    
-          <div className="container-input">
-            <div className="left-side"> 
-              <label className="label-upload" htmlFor="title">Title: </label>
+            <div className="container-input">
+              <div className="left-side">
+                <label className="label-upload" htmlFor="description">Description: </label>
+              </div>
+              <div className="right-side">
+                <input
+                  type="text"
+                  name="description"
+                  className="input-upload"
+                  value={this.state.description}
+                  onChange={this.onChangeInput}
+                />
+              </div>
             </div>
-            <div className="right-side">
-              <input
-                type="text"
-                name="title"
-                className="input-upload"
-                value={this.state.title}
-                onChange={this.onChangeInput}
-              />
+            
+            <div className="upload-file">
+              <input type="file" className="choose" onChange={this.handleChange}/>
+              <button onClick={this.handleUpload} className="btn-pic">Add File</button>
             </div>
-          </div>
-
-          <div className="container-input">
-            <div className="left-side">
-              <label className="label-upload" htmlFor="description">Description: </label>
-            </div>
-            <div className="right-side">
-              <input
-                type="text"
-                name="description"
-                className="input-upload"
-                value={this.state.description}
-                onChange={this.onChangeInput}
-              />
-            </div>
-          </div>
-          
-          <div className="upload-file">
-            <input type="file" className="choose" onChange={this.handleChange}/>
-            <button onClick={this.handleUpload} className="btn-pic">Add File</button>
-          </div>
-        </form>
+          </form>
 
         <div className="image-container">
           <img src={this.state.url || 'http://via.placeholder.com/500x400'} alt="Uploaded images" height="400" width="500"/>
           <progress value={this.state.progress} max="100"/>
           <button onClick={this.onSubmit} className="btn-pic">Save picture</button>
         </div>
-          
           
       </div>
     );

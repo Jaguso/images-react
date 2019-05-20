@@ -1,3 +1,4 @@
+
 .upload-container {
   display: flex;
   justify-content: space-around;
@@ -14,13 +15,20 @@
 }
 
 .form-container {
-  /* background-color: blueviolet; */
   width: 40%;
-  height: 60vh;
+  height: 50vh;
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: space-between;
+}
+
+.description {
+  text-align: justify;
+  width: 60%;
+  position: relative;
+  left: 90px;
+  color: rgba(0, 0, 0, 0.6);
 }
 
 .left-side {
