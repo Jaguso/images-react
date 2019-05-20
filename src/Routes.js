@@ -11,7 +11,7 @@ import PictureWatch from './components/PictureWatch';
 
 const PrivateRoute = ({component: Component, ...rest}) => (
   <Route {...rest} render = {(props) => (
-    isAuthenticated() ? <Component {...props}/> : <Redirect to="/login"/>
+    isAuthenticated() ? <Component {...props}/> : <Redirect to="/signup"/>
   )} />
 );
 
