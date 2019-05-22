@@ -5,8 +5,27 @@ import isAuthenticated from '../resolvers/isAuthenticated';
 
 class Navbar extends Component {
 
+  constructor() {
+    super();
+    this.state = {
+      isAuth: false
+    }
+  }
+
+  handleAuth = () => {
+    if (isAuthenticated()){
+      this.setState({isAuth: true})
+    } else {
+      this.setState({isAuth: false})
+    }
+  }
+
+  componentDidMount() {
+    this.handleAuth();
+  }
+
   authRender = () => {
-    if (isAuthenticated()) {
+    if (this.state.isAuth) {
       let name = payload(localStorage.getItem('Token')).name;
       return (
         <div className="auth-container">
