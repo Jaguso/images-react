@@ -14,15 +14,14 @@ class Navbar extends Component {
 
   handleAuth = () => {
     if (isAuthenticated()){
-      this.setState({isAuth: true})
-    } else {
-      this.setState({isAuth: false})
-    }
+      this.setState({isAuth: !this.state.isAuth})
+    } 
   }
 
   componentDidMount() {
     this.handleAuth();
   }
+
 
   authRender = () => {
     if (this.state.isAuth) {

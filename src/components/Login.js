@@ -1,6 +1,7 @@
 import React, { Component } from 'react';
 import { loginUser } from '../services';
 import './Login.css';
+// import { Redirect, BrowserRouter } from 'react-router-dom';
 
 class Login extends Component {
 
@@ -22,8 +23,9 @@ class Login extends Component {
     let response = await loginUser(this.state).catch();
     if (response) {
       const token = response.data.token
-      localStorage.setItem('Token', token);
+      localStorage.setItem('Token', token); 
       this.props.history.push('/');
+      this.forceUpdate()
     }
   }
 
